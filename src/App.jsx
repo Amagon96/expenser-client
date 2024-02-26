@@ -4,6 +4,7 @@ import { Expenses } from './components/Expenses.jsx'
 import { useExpenses } from './hooks/useExpenses.js'
 import Slider from '@mui/material/Slider'
 import { Box } from '@mui/material'
+import { Login } from './components/Login.jsx'
 
 const marks = [
   {
@@ -63,45 +64,46 @@ function App () {
   }
 
   return (
-    <div className='page'>
-      <header>
-        <h1>Expenser</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder='Transaction, Amount, Description'
-            onChange={handleChange}
-            value={query}
-          />
-        </form>
-      </header>
-      <Box
-        sx={{
-          width: '50%',
-          display: 'flex',
-          justifyContent: 'center',
-          marginLeft: '25px'
-        }}
-      >
-        <Slider
-          sx={{
-            '.MuiSlider-markLabel': {
-              color: '#bcbfcc'
-            }
-          }}
-          value={value}
-          getAriaLabel={() => 'Temperature range'}
-          getAriaValueText={valuetext}
-          onChange={handleSliderChange}
-          step={10}
-          marks={marks}
-          valueLabelDisplay='auto'
-          disableSwap
-        />
-      </Box>
-      <main>
-        <Expenses expenses={expenses} />
-      </main>
-    </div>
+    <Login />
+    // <div className='page'>
+    //   <header>
+    //     <h1>Expenser</h1>
+    //     <form onSubmit={handleSubmit}>
+    //       <input
+    //         placeholder='Transaction, Amount, Description'
+    //         onChange={handleChange}
+    //         value={query}
+    //       />
+    //     </form>
+    //   </header>
+    //   <Box
+    //     sx={{
+    //       width: '50%',
+    //       display: 'flex',
+    //       justifyContent: 'center',
+    //       marginLeft: '25px'
+    //     }}
+    //   >
+    //     <Slider
+    //       sx={{
+    //         '.MuiSlider-markLabel': {
+    //           color: '#bcbfcc'
+    //         }
+    //       }}
+    //       value={value}
+    //       getAriaLabel={() => 'Temperature range'}
+    //       getAriaValueText={valuetext}
+    //       onChange={handleSliderChange}
+    //       step={10}
+    //       marks={marks}
+    //       valueLabelDisplay='auto'
+    //       disableSwap
+    //     />
+    //   </Box>
+    //   <main>
+    //     <Expenses expenses={expenses} />
+    //   </main>
+    // </div>
   )
 }
 

@@ -19,6 +19,23 @@ header {
   max-width: 1200px;
 }
 
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
 input {
   width: 100%;
 }
@@ -93,4 +110,12 @@ li {
 
 .transaction-container p.description {
   text-align: left;
+}
+
+a {
+  margin-left: 20px;
+}
+
+button {
+  display: inline-block;
 }
