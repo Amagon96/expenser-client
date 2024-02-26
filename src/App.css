@@ -32,6 +32,7 @@ form {
 
 .expenses {
   width: 50%;
+  margin-right: 25px;
 }
 
 p.date {
