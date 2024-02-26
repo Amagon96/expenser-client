@@ -8,13 +8,13 @@ As a user I want to login and stay that way when using my phone or personal comp
 
 As a user I want to capture my expenses information, including. 
 
-Short name/description, amount and date.  
+✅Short name/description, amount and date.  
 
 Optionally I want to be able to categorize each expense 
 
-As a user I want view a list of all my expenses by day, week and month. 
+✅As a user I want view a list of all my expenses by day, week and month. 
 
-As a user I want filter my expenses by name, category and date. 
+✅As a user I want filter my expenses by name, category and date. 
 
 As a user I want find expenses less or greater than certain amount 
 
