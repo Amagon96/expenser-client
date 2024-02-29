@@ -39,7 +39,6 @@
   --text-muted: #a9b1ba;
   --links: #41adff;
   --focus: #0096bfab;
-  --border: #526980;
   --code: #ffbe85;
   --animation-duration: 0.1s;
   --button-base: #0c151c;
@@ -174,13 +173,11 @@ button {
 input {
   transition:
     background-color 0.1s linear,
-    border-color 0.1s linear,
     color 0.1s linear,
     box-shadow 0.1s linear,
     transform 0.1s ease;
   transition:
     background-color var(--animation-duration) linear,
-    border-color var(--animation-duration) linear,
     color var(--animation-duration) linear,
     box-shadow var(--animation-duration) linear,
     transform var(--animation-duration) ease;
@@ -191,13 +188,11 @@ input {
   input {
   transition:
     background-color 0.1s linear,
-    border-color 0.1s linear,
     color 0.1s linear,
     box-shadow 0.1s linear,
     transform 0.1s ease;
   transition:
     background-color var(--animation-duration) linear,
-    border-color var(--animation-duration) linear,
     color var(--animation-duration) linear,
     box-shadow var(--animation-duration) linear,
     transform var(--animation-duration) ease;
@@ -796,23 +791,6 @@ select[multiple] {
   overflow-y: auto;
 }
 
-input:focus {
-  box-shadow: 0 0 0 2px #0096bfab;
-  box-shadow: 0 0 0 2px var(--focus);
-}
-
-@media (prefers-color-scheme: dark) {
-
-  input:focus {
-  box-shadow: 0 0 0 2px #0096bfab;
-  box-shadow: 0 0 0 2px var(--focus);
-  }
-}
-
-select:focus {
-  box-shadow: 0 0 0 2px #0096bfab;
-  box-shadow: 0 0 0 2px var(--focus);
-}
 
 @media (prefers-color-scheme: dark) {
 
