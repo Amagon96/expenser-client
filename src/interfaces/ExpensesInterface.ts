@@ -25,6 +25,13 @@ export interface UseExpensesInterface {
     range? : number[]
 }
 
-export interface ExpenseDataInterface {
-
+export interface CustomSliderInterface {
+    handleSliderChange: (event: Event, newValue: number | number[], activeThumb: number) => void,
+    value: number[],
+    marks: [
+        {
+            value: number,
+            label: string
+        }
+    ]
 }

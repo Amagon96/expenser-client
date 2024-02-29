@@ -1,25 +1,16 @@
 import Slider from '@mui/material/Slider'
 import { Box } from '@mui/material'
+import {CustomSliderInterface} from "../interfaces/ExpensesInterface.ts";
 
-interface CustomSliderInterface {
-    handleSliderChange: (event: Event, newValue: number | number[], activeThumb: number) => void,
-    value: number[],
-    marks: [
-        {
-            value: number,
-            label: string
-        }
-    ]
-}
-
-export const CustomSlider = ({ handleSliderChange, value, marks }: CustomSliderInterface) => {
+export function CustomSlider({ handleSliderChange, value, marks }: CustomSliderInterface) {
   return (
     <Box
       sx={{
         width: '50%',
         display: 'flex',
         justifyContent: 'center',
-        marginLeft: '25px'
+        marginLeft: '25px',
+        marginTop: '25px'
       }}
     >
       <Slider
