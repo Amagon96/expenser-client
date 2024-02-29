@@ -4,6 +4,38 @@ import { Expenses } from './components/Expenses'
 import { useExpenses } from './hooks/useExpenses'
 import { CustomSlider } from './components/CustomSlider.tsx'
 import { useMarks } from './hooks/useMarks'
+import {styled, TextField} from "@mui/material";
+
+const CssTextField = styled(TextField)({
+  backgroundColor: "#161F27",
+  input: {
+    color: "#EFEFEF",
+  },
+  "& label.Mui-focused": {
+    color: "#EFEFEF"
+  },
+  "& label": {
+    color: "#A9B1BA",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#EFEFEF",
+    color: "#A9B1BA",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#A9B1BA",
+      color: "#EFEFEF",
+    },
+    "&:hover fieldset": {
+      borderColor: "#EFEFEF",
+      color: "#EFEFEF",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#EFEFEF",
+      color: "#EFEFEF",
+    },
+  },
+});
 
 export default function App () {
   const [query, setQuery] = useState('')
@@ -31,6 +63,7 @@ export default function App () {
     }
     getExpenses({ query, range: newValue })
   }
+  console.log(expenses)
 
   function handleSubmit (event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -41,18 +74,22 @@ export default function App () {
       <header>
         <h1>Expenser</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            placeholder='Transaction, Amount, Description'
-            onChange={handleChange}
-            value={query}
+          <CssTextField
+              fullWidth
+              label="Transaction, Amount, Description"
+              id="custom-css-outlined-input"
+              onChange={handleChange}
+              value={query}
           />
         </form>
       </header>
-      <CustomSlider
-        handleSliderChange={handleSliderChange}
-        value={value}
-        marks={marks}
-      />
+      { Object.keys(expenses).length !== 0 ?
+          <CustomSlider
+              handleSliderChange={handleSliderChange}
+              value={value}
+              marks={marks}
+          /> : <h4>No expenses found</h4>
+      }
       <main>
         <Expenses expenses={expenses} />
       </main>
