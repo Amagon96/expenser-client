@@ -1,29 +1,25 @@
 import './App.css'
-import { useState } from 'react'
-import { Expenses } from './components/Expenses.jsx'
-import { useExpenses } from './hooks/useExpenses.js'
-import { CustomSlider } from './components/CustomSlider.jsx'
-import { useMarks } from './hooks/useMarks.js'
+import {ChangeEvent, FormEvent, useState} from 'react'
+import { Expenses } from './components/Expenses'
+import { useExpenses } from './hooks/useExpenses'
+import { CustomSlider } from './components/CustomSlider.tsx'
+import { useMarks } from './hooks/useMarks'
 
-function valueText (value) {
-  return `$${value}`
-}
-
-function App () {
+export default function App () {
   const [query, setQuery] = useState('')
-  const { expenses, getExpenses } = useExpenses({ query })
   const [value, setValue] = useState([0, 100])
+  const { expenses, getExpenses } = useExpenses({ query })
   const { marks } = useMarks({ expenses })
+  const minDistance = parseInt(import.meta.env.VITE_REACT_APP_MIN_DISTANCE)
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value
     setQuery(newQuery)
-    getExpenses({ search: newQuery })
+    getExpenses({ query: newQuery })
   }
 
-  const minDistance = 10
-
-  const handleSliderChange = (event, newValue, activeThumb) => {
+  const handleSliderChange = (event: Event, newValue: number | number[], activeThumb: number) => {
+    event.preventDefault()
     if (!Array.isArray(newValue)) {
       return
     }
@@ -36,7 +32,7 @@ function App () {
     getExpenses({ query, range: newValue })
   }
 
-  function handleSubmit (event) {
+  function handleSubmit (event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
   }
 
@@ -55,7 +51,6 @@ function App () {
       <CustomSlider
         handleSliderChange={handleSliderChange}
         value={value}
-        valueText={valueText}
         marks={marks}
       />
       <main>
@@ -64,5 +59,3 @@ function App () {
     </div>
   )
 }
-
-export default App
