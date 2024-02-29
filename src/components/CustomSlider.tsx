@@ -1,7 +1,18 @@
 import Slider from '@mui/material/Slider'
 import { Box } from '@mui/material'
 
-export const CustomSlider = ({ handleSliderChange, value, valueText, marks }) => {
+interface CustomSliderInterface {
+    handleSliderChange: (event: Event, newValue: number | number[], activeThumb: number) => void,
+    value: number[],
+    marks: [
+        {
+            value: number,
+            label: string
+        }
+    ]
+}
+
+export const CustomSlider = ({ handleSliderChange, value, marks }: CustomSliderInterface) => {
   return (
     <Box
       sx={{
@@ -19,7 +30,6 @@ export const CustomSlider = ({ handleSliderChange, value, valueText, marks }) =>
         }}
         value={value}
         getAriaLabel={() => 'Amount range'}
-        getAriaValueText={valueText}
         onChange={handleSliderChange}
         step={1}
         marks={marks}
