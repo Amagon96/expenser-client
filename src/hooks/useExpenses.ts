@@ -6,6 +6,7 @@ import {
 } from "../interfaces/ExpensesInterface.ts";
 
 const objectGroupBy = (object: ExpenseInterface[]) => {
+  
   // @ts-ignore could not fix TS2339: Property 'groupBy' does not exist on type 'ObjectConstructor' yet
   return Object.groupBy(object, ({ data }: ExpenseInterface) => data.date)
 }
@@ -36,6 +37,8 @@ export function useExpenses ({ query }: UseExpensesInterface) {
       return expense.data.amount >= firstValue && expense.data.amount <= secondValue
     })
     const groupedExpenses = objectGroupBy(newExpenses)
+    console.log(groupedExpenses);
+    
     setExpenses(groupedExpenses)
   }
 

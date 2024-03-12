@@ -2,9 +2,10 @@ import './App.css'
 import {ChangeEvent, FormEvent, useState} from 'react'
 import { Expenses } from './components/Expenses'
 import { useExpenses } from './hooks/useExpenses'
-import { CustomSlider } from './components/CustomSlider.tsx'
+import { CustomSlider } from './components/CustomSlider'
 import { useMarks } from './hooks/useMarks'
 import {styled, TextField} from "@mui/material";
+import SignIn from "./components/SignIn.tsx";
 
 const CssTextField = styled(TextField)({
   backgroundColor: "#161F27",
@@ -63,13 +64,13 @@ export default function App () {
     }
     getExpenses({ query, range: newValue })
   }
-  console.log(expenses)
 
   function handleSubmit (event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
   }
 
   return (
+      // <SignIn />
     <div className='page'>
       <header>
         <h1>Expenser</h1>
